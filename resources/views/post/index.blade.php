@@ -14,15 +14,39 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <title>Document</title>
 </head>
-<body>
+<body><a href="/post/create" class="btn btn-dark">ADD  </a>
 <div class="col-lg-10">
-    <form action="#" method="post">
-        @csrf
-    <label for="title">TITLE </label>
-    <input class="form-control form-control-lg" type="text" id="title" placeholder="TITLE HERE">
-<label for="des">DESCREPTION</label>
-<input class="form-control form-control-lg" id="des" type="text" placeholder="ENTER DESCRIPTION">
-<button type="submit" class="btn btn-info">SUBMIT</button>
+      <table class="table">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col">SR.</th>
+            <th scope="col">TITLE</th>
+            <th scope="col">DESCRIPTION</th>
+            <th scope="col" colspan="2">ACTION</th>
+          </tr>
+        </thead>
+        <tbody>
+            @foreach ($data as $value)
+
+
+          <tr>
+              <td>{{$i=$i++}}</td>
+            <th scope="row">{{$value->name}}</th>
+            <td> {{$value->description}} </td>
+            <td><a class="btn btn-info" href="/post/edit/{{$value->id}}">EDIT</a>
+                <a class="btn btn-danger" href="/post/delete/{{$value->id}}">DELETE</a></td>
+          </tr>
+          @endforeach
+        </tbody>
+        <tfoot>
+            <tr>
+            <th scope="col">SR.</th>
+            <th scope="col">TITLE</th>
+            <th scope="col">DESCRIPTION</th>
+            <th scope="col" colspan="2">ACTION</th>
+            </tr>
+        </tfoot>
+      </table>
     </form>
 </div>
 </body>

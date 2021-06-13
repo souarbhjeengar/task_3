@@ -16,32 +16,13 @@
 </head>
 <body>
 <div class="col-lg-10">
-      <table class="table">
-        <thead class="thead-light">
-          <tr>
-            <th scope="col">SR.</th>
-            <th scope="col">TITLE</th>
-            <th scope="col">DESCRIPTION</th>
-            <th scope="col" colspan="2">ACTION</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">3</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td><a class="btn btn-info" href="">EDIT</a>|<a class="btn btn-danger" href="">DELETE</a></td>
-          </tr>
-        </tbody>
-        <tfoot>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
-              </tr>
-        </tfoot>
-      </table>
+    <form action="/post/index" method="post">
+        @csrf
+    <label for="title">TITLE </label>
+    <input class="form-control form-control-lg" type="text" name="name" id="title" placeholder="TITLE HERE">
+<label for="des">DESCREPTION</label>
+<input class="form-control form-control-lg" name="description" id="des" type="text" placeholder="ENTER DESCRIPTION">
+<button type="submit" class="btn btn-info">SUBMIT</button>
     </form>
 </div>
 </body>
